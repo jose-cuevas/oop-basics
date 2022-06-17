@@ -32,3 +32,40 @@ class Mobile
 $modernMobile = new Mobile('Samsung s20', 'Exynos', 128);
 $oldMobile = new Mobile('BlackBerry', 'ARM', 1);
 echo "<br>";
+
+
+
+
+// * My practice
+class Dogs
+{
+    public $name;
+    public $breed;
+    public $weight;
+
+    public function __construct($n, $b, $w)
+    {
+        $this->name     = $n;
+        $this->breed    = $b;
+        $this->weight   = $w; 
+    }
+
+    public function getName(){
+        return "The name is " . $this->name . "\n";
+    }
+
+
+    public function __destruct()
+    {
+     echo "DESTRUC" .$this->name;   
+    }
+
+}
+
+$dog_1 = new Dogs("Adele", "lavrador", 33);
+
+echo "<pre>";
+echo $dog_1->getName();
+var_dump($dog_1);
+
+

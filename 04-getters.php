@@ -59,3 +59,29 @@ echo "<br>";
 echo $modernMobile->chipset;
 echo "<br>";
 echo $modernMobile->internalMemory;
+
+
+// * My practice
+class Student
+{
+    public $name;
+    public $lastName;
+    public $age;
+
+   public function getAge()
+   {
+        return $this->age;      
+   }
+}
+
+$student_1 = new Student();
+$student_1->name = 'Anna';
+$student_1->lastName = 'Cole';
+$student_1->age = 29;
+
+
+
+echo "<pre>";
+// var_dump($student_1);
+
+echo "The age is " . $student_1->getAge();

@@ -48,3 +48,31 @@ $mobileArray = [
     'internalMemory' => 64
 ];
 echo $mobileArray['chipset'];
+
+
+// * My practice
+
+class Customer 
+{
+    public  $firstName;
+    public  $lastName;
+    public  $age;
+}
+
+$customer_1 = new Customer();
+
+$customer_1->firstName = 'John';
+$customer_1->lastName = 'Garcia';
+$customer_1->age = 35;
+
+
+$customer_2 = new Customer();
+
+$customer_2->firstName = 'John';
+$customer_2->lastName = 'Garcia';
+$customer_2->age = 35.45;
+
+
+echo "<pre>";
+var_dump($customer_1) ;
+var_dump($customer_2) ;

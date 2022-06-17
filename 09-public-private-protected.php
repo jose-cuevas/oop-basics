@@ -79,15 +79,69 @@ echo $samsung->name; // OK | Public property
 echo "<br>";
 echo $samsung->getChipset(); // OK | Public method accessing a protected property inside the class
 echo "<br>";
-echo $samsung->chipset; // ERROR | Private property so we can't access outside the class and throws: Fatal error: Uncaught Error: Cannot access privated property Mobile::$chipset
+// echo $samsung->chipset; // ERROR | Private property so we can't access outside the class and throws: Fatal error: Uncaught Error: Cannot access privated property Mobile::$chipset
 echo "<br>";
-echo $samsung->getIMEI(); // ERROR | Protected method so we can't call it outside our class and throws: Fatal error: Uncaught Error: Call to protected method Mobile::getIMEI() from context
+// echo $samsung->getIMEI(); // ERROR | Protected method so we can't call it outside our class and throws: Fatal error: Uncaught Error: Call to protected method Mobile::getIMEI() from context
 echo "<br>";
-echo $samsung->imei; // ERROR | Private property so we can't access outside the class and throws: Fatal error: Uncaught Error: Cannot access private property Mobile::$imei
+// echo $samsung->imei; // ERROR | Private property so we can't access outside the class and throws: Fatal error: Uncaught Error: Cannot access private property Mobile::$imei
 echo "<br>";
 echo $blackberry->showIMEI(); // OK | Public method accessing a inherited protected method inside the class
 echo "<br>";
 echo $blackberry->getInternalMemory(); // OK | Public method accessing a inherited protected method inside the class
 echo "<br>";
-echo $blackberry->internalMemory; // Uncaught Error: Cannot access protected property Blackberry::$internalMemory
+// echo $blackberry->internalMemory; // Uncaught Error: Cannot access protected property Blackberry::$internalMemory
 echo "<br>";
+
+
+// * My Practice
+
+class Customer
+{
+    // private $id;
+    public $firstName;
+    private $email;
+    protected $age;
+
+    public function __construct($f, $e, $a)
+    {
+        $this->firstName = $f;
+        $this->email = $e;
+        $this->age = $a;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    
+}
+
+class Suscribe extends Customer
+{
+
+    public $plan;
+    
+    public function __construct($f, $e, $a, $p)
+    {
+        parent::__construct($f, $e, $a);
+        $this->plan = $p;        
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+}
+
+$supcriptor_1 = new Suscribe("Jose", "jose@gmail.com", 12, 123);
+echo "<pre>";
+// var_dump($supcriptor_1);
+// echo $supcriptor_1->getEmail();
+
+echo $supcriptor_1->getEmail();
+// echo $supcriptor_1->email;
+
+// echo $supcriptor_1->age;
+echo $supcriptor_1->getAge();

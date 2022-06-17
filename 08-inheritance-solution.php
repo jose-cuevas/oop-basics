@@ -7,6 +7,8 @@
 
 // Let's apply inheritance in latest example
 
+use Customer as GlobalCustomer;
+
 class Mobile
 {
     public $name;
@@ -68,3 +70,48 @@ $blackberry = new BlackBerry('BlackBerry', 'ARM', 1, 'qwerty');
 echo $blackberry->getName();
 echo "\n";
 echo $blackberry->getMobileDetails();
+
+
+// * My Practice
+
+class Customer
+{
+    // private $id;
+    public $firstName;
+    public $email;
+    public $age;
+
+    public function __construct($f, $e, $a)
+    {
+        $this->firstName = $f;
+        $this->email = $e;
+        $this->age = $a;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    
+}
+
+class Suscribe extends Customer
+{
+
+    public $plan;
+    
+    public function __construct($f, $e, $a, $p)
+    {
+        parent::__construct($f, $e, $a);
+        $this->plan = $p;        
+    }
+
+}
+
+$supcriptor_1 = new Suscribe("Jose", "jose@gmail.com", 12, 123);
+echo "<pre>";
+
+var_dump($supcriptor_1);
+
+echo $supcriptor_1->getEmail();
